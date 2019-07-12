@@ -1,4 +1,4 @@
-package org.ajou.realcoding.lolbackend.lolbackend.config;
+package org.ajou.realcoding.lolbackend.lolbackend.config.config;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
