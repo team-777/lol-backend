@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LolBackendController {
 
+
     @Autowired
     LolBackendService lolBackendService;
 
-    @GetMapping("/LOL-backend/SummonerId/BySummonerName/{summonerName}")
-    public SummonerV4 getSummonerId(@PathVariable String summonerName) {
-        return lolBackendService.getSummonerIdByName(summonerName);
+
+    @GetMapping("/LOL-backend/Performance/BySummonerName/{summonerName}")
+    public LeagueV4 getPerformance(@PathVariable String summonerName){
+        SummonerV4 summonerId = lolBackendService.getSummonerIdByName(summonerName);
+        return lolBackendService.getPerformanceById(summonerId.getId());
     }
 
-    @GetMapping("/LOL-backend/Performance/BySummonerId/{summonerId}")
-    public LeagueV4 getPerformance(@PathVariable String summonerId){
-        return lolBackendService.getPerformanceById(summonerId);
-    }
+
 }
