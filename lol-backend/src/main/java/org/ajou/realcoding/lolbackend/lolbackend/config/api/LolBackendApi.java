@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class LolBackendApi {
 
-    private final String api_key = "RGAPI-db474eb5-9bb0-43b9-a2f4-6cb8c8a2c9b8";
+    private final String api_key = "RGAPI-b8811554-d826-4ae1-9512-afab317a0748";
     private final String summonerV4Url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
     private final String leagueV4Url = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{summonerId}?api_key={api_key}";
 
