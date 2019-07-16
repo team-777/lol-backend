@@ -7,6 +7,8 @@ import org.ajou.realcoding.lolbackend.lolbackend.config.repository.LolBackendRep
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LolBackendService {
 
@@ -20,9 +22,11 @@ public class LolBackendService {
         return lolBackendApi.requestSummonerId(summonerName);
     }
 
-    public LeagueV4 getPerformanceById(String summonerId){
-
-        lolBackendRepository.insertPerformance(lolBackendApi.requestPerformance(summonerId));
+    public List<LeagueV4> getPerformanceById(String summonerId){
+        if(lolBackendRepository.findPerformance(summonerId).isEmpty())
+            lolBackendRepository.insertPerformance(lolBackendApi.requestPerformance(summonerId));
+        else
+            lolBackendRepository.updatePerformance(lolBackendApi.requestPerformance(summonerId));
         return lolBackendRepository.findPerformance(summonerId);
     }
 }
