@@ -23,7 +23,10 @@ public class LolBackendService {
     }
 
     public List<LeagueV4> getPerformanceById(String summonerId){
-        lolBackendRepository.insertPerformance(lolBackendApi.requestPerformance(summonerId));
+        if(lolBackendRepository.findPerformance(summonerId).isEmpty())
+            lolBackendRepository.insertPerformance(lolBackendApi.requestPerformance(summonerId));
+        else
+            lolBackendRepository.updatePerformance(lolBackendApi.requestPerformance(summonerId));
         return lolBackendRepository.findPerformance(summonerId);
     }
 }
